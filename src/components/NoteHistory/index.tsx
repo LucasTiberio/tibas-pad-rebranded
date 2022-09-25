@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import useNoteHistory from "../../hooks/useNotepadHistory";
 import useNotepadRouter from "../../hooks/useNotepadRouter";
 import { Button } from "@mantine/core";
+import RecentButton from "./components/RecentButton";
 
 const NoteHistory: React.FC<iNoteHistoryComponent> = ({ style }) => {
   const { noteHistory } = useNoteHistory();
@@ -31,15 +32,9 @@ const NoteHistory: React.FC<iNoteHistoryComponent> = ({ style }) => {
       searchPlaceholder="Busque em seu histórico"
       nothingFoundMessage="Nenhuma nota encontrada com este nome"
     >
-      <Button
-        onClick={handleOpenSpotlight}
-        variant="default"
-        color="dark"
-        size="xs"
-        uppercase
-      >
+      <RecentButton onClick={handleOpenSpotlight} >
         show recents
-      </Button>
+      </RecentButton>
     </SpotlightProvider>
   )
 }

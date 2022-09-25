@@ -17,6 +17,7 @@ const useNotepadRouter = () => {
 
     navigate(`/${name}`);
   }
+
   return {
     goToNote,
   }
