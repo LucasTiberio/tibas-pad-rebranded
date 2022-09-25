@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "rm -rf dist && tsc && vite build",
+    "preview": "vite preview",
+    "deploy::aws": "aws s3 sync dist/ s3://notes.tibas.club --acl public-read"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
