@@ -2,12 +2,12 @@ import { iNoteHistoryComponent } from "./interface"
 import { openSpotlight, SpotlightAction, SpotlightProvider } from '@mantine/spotlight';
 import { useMemo } from "react";
 import useNoteHistory from "../../hooks/useNotepadHistory";
-import useNoteRouter from "../../hooks/useNoteRouter";
+import useNotepadRouter from "../../hooks/useNotepadRouter";
 import { Button } from "@mantine/core";
 
 const NoteHistory: React.FC<iNoteHistoryComponent> = ({ style }) => {
   const { noteHistory } = useNoteHistory();
-  const { goToNote } = useNoteRouter();
+  const { goToNote } = useNotepadRouter();
 
   const handleSelectNoteInHistory = (action: SpotlightAction) => {
     goToNote(action.title, { withDelay: true })

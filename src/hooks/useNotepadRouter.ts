@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useNotepad } from "../state/notepad";
 import { iGoToNotepadOptions } from "../state/notepad/user-notepad.interface";
 
-const useNoteRouter = () => {
+const useNotepadRouter = () => {
   const navigate = useNavigate();
   const { fetchNotepad } = useNotepad();
 
@@ -22,4 +22,4 @@ const useNoteRouter = () => {
   }
 }
 
-export default useNoteRouter;
+export default useNotepadRouter;

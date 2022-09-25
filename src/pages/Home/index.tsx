@@ -1,6 +1,6 @@
 import React from "react";
 import NoteHistory from "../../components/NoteHistory";
-import useNoteRouter from "../../hooks/useNoteRouter";
+import useNotepadRouter from "../../hooks/useNotepadRouter";
 import { iReactRoutePage } from "../../router/interface";
 import { useNotepad } from "../../state/notepad";
 import AppPage from "../Page";
@@ -9,7 +9,7 @@ import { Container, HomeTextWithContrast, HomeTitle } from "./styles";
 
 const HomePage: React.FC<iReactRoutePage> = () => {
   const { loading } = useNotepad();
-  const { goToNote } = useNoteRouter();
+  const { goToNote } = useNotepadRouter();
 
   const handleGoToNote = async (noteName: string) => {
     goToNote(noteName);
