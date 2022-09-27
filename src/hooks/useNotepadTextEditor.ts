@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNotepad } from "../state/notepad";
 import useDebounce from "./useDebounce";
 
 const useNotepadTextEditor = ({
   requestUpdateAfterDebounce = false,
 } = {}) => {
-  const { updateNotepadContent, notepad, loading } = useNotepad();
+  const { updateNotepadContent, notepad } = useNotepad();
   const [value, setValue] = useState(notepad?.content || '');
   const debouncedValue = useDebounce(value, 600)
 

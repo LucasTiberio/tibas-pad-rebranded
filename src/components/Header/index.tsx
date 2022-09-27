@@ -23,7 +23,6 @@ const Header: React.FC<iHeader> = ({
       
       <div>{mainComponent}</div>
 
-      {/* TODO: Configuration section */}
       <div>{rightComponent}</div>
     </Container>
   )
