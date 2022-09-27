@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNotepad } from "../state/notepad";
 import useDebounce from "./useDebounce";
 
 const useNotepadTextEditor = ({
   requestUpdateAfterDebounce = false,
 } = {}) => {
-  const [value, setValue] = useState('');
+  const { updateNotepadContent, notepad, loading } = useNotepad();
+  const [value, setValue] = useState(notepad?.content || '');
   const debouncedValue = useDebounce(value, 600)
-  const { updateNotepadContent, notepad } = useNotepad();
 
   useEffect(() => {
-    if (requestUpdateAfterDebounce && notepad?.name) {
-      updateNotepadContent(notepad.name, `${debouncedValue}`);
+    const contentIsDifferent = notepad?.content !== value;
+
+    if (notepad?.name && contentIsDifferent) {
+      if (requestUpdateAfterDebounce) updateNotepadContent(notepad.name, `${debouncedValue}`);
     }
   }, [debouncedValue])
 
