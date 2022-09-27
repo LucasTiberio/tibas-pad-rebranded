@@ -14,11 +14,27 @@ jobs:
         node-version: [16.17.0]
     
     steps:
-      - uses: actions/checkout@v1
-      - run: yarn
-      - run: yarn build
-      # - run: npm test 
-      - uses: jakejarvis/s3-sync-action@master
+      - name: Setup repository access for job
+        uses: actions/checkout@v1
+
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_VITE_API_HOST: https://tibas-api.herokuapp.com/
+          file_name: .env
+          fail_on_empty: true
+
+      - name: Install packages
+        run: yarn
+      
+      - name: Build app
+        run: yarn build
+      
+      # - name: Run tests
+      #  run: npm test 
+      
+      - name: AWS S3 Sync
+        uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
         env:
