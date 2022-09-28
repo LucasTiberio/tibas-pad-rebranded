@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
-  padding: 4rem 2rem;
+  margin: 4rem 2rem;
 
   @media screen and (min-width: 768px) {
     max-width: 1000px;

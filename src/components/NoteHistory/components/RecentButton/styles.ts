@@ -25,10 +25,20 @@ export const StyledButton = styled.span`
     background-color: ${({ theme }) => theme.colors.LIGHT};
 
     transition: all 0.2s ease-in-out;
+
+    @media screen and (max-width: 768px) {
+      top: 8%;
+      left: 3%;
+    }
   }
   
   &:hover::before {
     top: 0%;
     left: 0%;
+  }
+  transition: all 0.2s ease-in-out;
+
+  @media screen and (max-width: 768px) {
+    padding: 8px 14px;
   }
 `

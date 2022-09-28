@@ -31,5 +31,9 @@ export const NotepadTitle = styled.span`
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `
 

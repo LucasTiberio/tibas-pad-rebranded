@@ -15,5 +15,5 @@ export const Container = styled.div<{
 
   /* background-color: red; */
 
-  padding: 16px 0;
+  margin: 16px 0;
 `

@@ -30,4 +30,8 @@ export const LeftArrow = styled.div`
       animation: ${leftArrowAnimation} 1s infinite;
     }
   }
+
+  @media screen and (max-width: 768px) {
+   width: 40px; 
+  }
 `
