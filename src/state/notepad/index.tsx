@@ -46,7 +46,7 @@ const NotepadContextProvider: React.FC<iReactComponent> = ({ children }) => {
     }
 
     if (withDelay) {
-      await sleep(2500);
+      await sleep(1500);
     }
 
     setLoading(false)

@@ -12,7 +12,7 @@ const HomePage: React.FC<iReactRoutePage> = () => {
   const { goToNote } = useNotepadRouter();
 
   const handleGoToNote = async (noteName: string) => {
-    goToNote(noteName);
+    goToNote(noteName, { withDelay: true });
   }
 
   return (
