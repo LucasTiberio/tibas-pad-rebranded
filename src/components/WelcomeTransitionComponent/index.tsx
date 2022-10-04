@@ -10,7 +10,7 @@ const WELCOME_TRANSITIONS = [
     backgroundColor: DSTheme.colors.DARKEST
   },
   {
-    delay: '0.6s',
+    delay: '0.5s',
     backgroundColor: DSTheme.colors.LIGHT
   }
 ]
@@ -37,6 +37,7 @@ const WelcomeTransitionComponent: React.FC<iWelcomeTransitionComponent> = ({ loa
           delay={transition.delay}
           backgroundColor={transition.backgroundColor}
           startAnimation={!loading}
+          index={index}
         >
           {(index === 0 && loading) ? (
             <SpinnerWrapper>

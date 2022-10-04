@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import Spinner from '../Spinner';
 import { iUpward } from './interface';
 
 export const FullScreenContainer = styled.div`
@@ -12,21 +11,22 @@ export const FullScreenContainer = styled.div`
 
   z-index: 5;
   overflow: hidden;
+
+  pointer-events: none;
 `
 
 const upwardAnimation = keyframes`
   0% {
-    max-height: 100%;
+    transform: translateY(0%);
   }
 
   100% {
-    max-height: 0%;
+    transform: translateY(-100%);
   }
 `
 
-export const UPWARD_ANIMATION_DURATION_MS = 600;
+export const UPWARD_ANIMATION_DURATION_MS = 500;
 export const UpwardTransitionItem = styled.div<iUpward>`
-  max-height: 100%;
   height: 100%;
   width: 100%;
   background: ${({ backgroundColor }) => backgroundColor};
@@ -34,15 +34,16 @@ export const UpwardTransitionItem = styled.div<iUpward>`
   animation-duration: ${UPWARD_ANIMATION_DURATION_MS}ms;
   animation-delay: ${({ delay }) => delay};
   animation-name: ${({ startAnimation }) => startAnimation ? upwardAnimation : ''};
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
 
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
 
-  position: relative;
-  /* display: flex; */
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  z-index: ${({ index }) => 500 - index};
 `
 
 export const SpinnerWrapper = styled.div`

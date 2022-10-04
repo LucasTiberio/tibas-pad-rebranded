@@ -8,14 +8,14 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {siteMapKeys.map(siteMapName => {
-          const route = siteMap[siteMapName as iSiteMapTypes];
+        {siteMapKeys.map(siteMapKey => {
+          const route = siteMap[siteMapKey as iSiteMapTypes];
           const { path, Component, ...rest } = route;
 
           if (!Component) return null;
 
           return <Route
-            key={siteMapName}
+            key={siteMapKey}
             path={path}
             element={<Component {...rest} />}
           />

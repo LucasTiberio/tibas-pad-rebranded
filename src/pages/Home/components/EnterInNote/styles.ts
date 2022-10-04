@@ -5,21 +5,21 @@ const MIN_CONTAINER_WIDTH = '60px';
 
 const CLOSE_INPUT_ANIMATION = keyframes`
   0% {
-    max-width: 100%;
+    width: 100%;
   }
 
   100% {
-    max-width: ${MIN_CONTAINER_WIDTH};
+    width: ${MIN_CONTAINER_WIDTH};
   }
 `
 
 const OPEN_INPUT_ANIMATION = keyframes`
   0% {
-    max-width: ${MIN_CONTAINER_WIDTH};
+    width: ${MIN_CONTAINER_WIDTH};
   }
 
   100% {
-    max-width: 100%;
+    width: 100%;
   }
 `
 
@@ -29,9 +29,10 @@ export const Container = styled.div<{ opened: boolean }>`
   margin: 0 auto;
 
   // Initial state
-  max-width: ${({ opened }) => opened ? MIN_CONTAINER_WIDTH : '100%'};
+  width: ${({ opened }) => opened ? MIN_CONTAINER_WIDTH : '100%'};
+  max-width: 100%;
   
-  animation-delay: ${({ opened }) => opened ? '1.2s' : '0s'};
+  animation-delay: ${({ opened }) => opened ? '1s' : '0s'};
   animation-name: ${({ opened }) => opened ? OPEN_INPUT_ANIMATION : CLOSE_INPUT_ANIMATION};
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
@@ -39,7 +40,7 @@ export const Container = styled.div<{ opened: boolean }>`
   -webkit-animation-fill-mode: forwards;
 
   @media screen and (min-width: 650px) {
-    animation-duration: 1s;
+    animation-duration: 0.4s;
   }
 `
 
