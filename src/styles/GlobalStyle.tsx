@@ -41,5 +41,6 @@ export default createGlobalStyle<iGlobalStyle>`
   * {
     cursor: ${({ hideCursor }) => hideCursor ? 'none' : 'auto'} !important;
     box-sizing: border-box;
+    font-family: 'Roboto', serif;
   }
 `
